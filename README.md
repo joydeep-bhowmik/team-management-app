@@ -1,53 +1,251 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Team Management App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive team management application built with Laravel, designed to streamline employee management, attendance tracking, leave applications, task assignments, and team communication.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Core Functionality
+- **User Management**: Employee profiles with designations, contact information, and media uploads
+- **Attendance Tracking**: Clock in/out functionality with attendance requests and management
+- **Leave Management**: Submit, approve, and track leave applications with different types
+- **Task Management**: Create, assign, and track tasks with file attachments and conversations
+- **Team Communication**: Built-in conversation system for task discussions and team collaboration
+- **Notes System**: Personal and shared notes for team members
+- **Event Management**: Schedule and manage team events
+- **Guidelines**: Centralized documentation and guidelines for the team
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Administrative Features
+- **Employee Management**: Add, edit, and manage employee records
+- **Designation Management**: Create and assign job roles and permissions
+- **Attendance Oversight**: Monitor and manage all attendance records
+- **Leave Approvals**: Review and approve/decline leave requests
+- **System Administration**: Full admin panel for system management
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Technical Features
+- **Real-time Notifications**: Firebase Cloud Messaging (FCM) for push notifications
+- **File Uploads**: Media library integration for document and image management
+- **Responsive Design**: Mobile-friendly interface with Tailwind CSS and DaisyUI
+- **Onboarding System**: Guided setup process for new users
+- **API Support**: RESTful API with Laravel Sanctum authentication
 
-## Learning Laravel
+## Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Backend**: Laravel 11.x
+- **Frontend**: Livewire, Volt, Mary UI
+- **Styling**: Tailwind CSS, DaisyUI
+- **Build Tool**: Vite
+- **Database**: MySQL/PostgreSQL (via Laravel migrations)
+- **Authentication**: Laravel Sanctum
+- **Notifications**: Firebase Cloud Messaging
+- **Media Management**: Custom Laravel Media Library
+- **Testing**: Pest PHP
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Prerequisites
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP 8.2 or higher
+- Composer
+- Node.js 16+ and npm
+- MySQL/PostgreSQL database
+- Firebase project (for notifications)
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd team-management-app
+   ```
 
-### Premium Partners
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Environment Configuration**
+   ```bash
+   cp .env.example .env
+   ```
+
+   Update the `.env` file with your database credentials, Firebase configuration, and other settings:
+   ```env
+   APP_NAME="Team Management App"
+   APP_ENV=local
+   APP_KEY=
+   APP_DEBUG=true
+   APP_URL=http://localhost
+
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=team_management
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+
+   # Firebase Configuration
+   FIREBASE_PROJECT_ID=your_project_id
+   FIREBASE_PRIVATE_KEY=your_private_key
+   FIREBASE_CLIENT_EMAIL=your_client_email
+   ```
+
+5. **Generate application key**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Run database migrations**
+   ```bash
+   php artisan migrate
+   ```
+
+7. **Seed the database (optional)**
+   ```bash
+   php artisan db:seed
+   ```
+
+8. **Build assets**
+   ```bash
+   npm run build
+   # or for development
+   npm run dev
+   ```
+
+9. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
+
+## Usage
+
+### For Employees
+1. **Register/Login**: Create an account or log in with existing credentials
+2. **Complete Onboarding**: Follow the guided setup process
+3. **Daily Attendance**: Clock in/out using the attendance system
+4. **Manage Tasks**: View assigned tasks, update progress, and participate in conversations
+5. **Leave Applications**: Submit leave requests and track their status
+6. **Team Collaboration**: Use the people directory and notes system
+
+### For Administrators
+1. **Access Admin Panel**: Log in with admin credentials
+2. **Manage Employees**: Add new employees, assign designations
+3. **Oversee Attendance**: Monitor attendance records and handle requests
+4. **Approve Leaves**: Review and approve/decline leave applications
+5. **Create Tasks**: Assign tasks to team members
+6. **Manage Events**: Schedule team events and announcements
+
+## API Documentation
+
+The application provides RESTful APIs for mobile app integration:
+
+- Authentication endpoints (Sanctum)
+- User management
+- Attendance tracking
+- Task management
+- Leave applications
+
+API routes are defined in `routes/api.php`.
+
+## Testing
+
+Run the test suite using Pest PHP:
+
+```bash
+# Run all tests
+php artisan test
+
+# Run with coverage
+php artisan test --coverage
+```
+
+## Deployment
+
+1. **Production Environment Setup**
+   ```bash
+   composer install --optimize-autoloader --no-dev
+   php artisan config:cache
+   php artisan route:cache
+   php artisan view:cache
+   ```
+
+2. **Build Assets for Production**
+   ```bash
+   npm run build
+   ```
+
+3. **Database Migration on Server**
+   ```bash
+   php artisan migrate --force
+   ```
+
+4. **Queue Worker (if using queues)**
+   ```bash
+   php artisan queue:work
+   ```
+
+## Configuration
+
+### Firebase Setup
+1. Create a Firebase project at https://console.firebase.google.com/
+2. Enable Cloud Messaging
+3. Generate a service account key
+4. Add the credentials to your `.env` file
+
+### File Storage
+The application supports local and FTP storage. Configure in `config/filesystems.php` and `.env`:
+
+```env
+FILESYSTEM_DISK=local
+# or
+FILESYSTEM_DISK=ftp
+FTP_HOST=your_ftp_host
+FTP_USERNAME=your_ftp_username
+FTP_PASSWORD=your_ftp_password
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Code Quality
+
+- Follow PSR-12 coding standards
+- Use Laravel Pint for code formatting: `composer run pint`
+- Write tests for new features
+- Use meaningful commit messages
+
+## Security
+
+- All user inputs are validated and sanitized
+- Passwords are hashed using Laravel's built-in hashing
+- API authentication uses Laravel Sanctum tokens
+- File uploads are validated for type and size
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check the documentation in the `docs/` folder
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and updates.
+
+---
+
+Built with ❤️ using Laravel
 
 ## Contributing
 
